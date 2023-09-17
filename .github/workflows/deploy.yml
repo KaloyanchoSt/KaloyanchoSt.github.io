@@ -49,18 +49,33 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-  build-container:
-    name: Build Docker container image
+  Docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Publish to Github Packages
-        uses: docker/build-push-action@v1
-        with: 
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: ${{ github.repository }}/next
-          tags: latest, ${{ github.run_number }}
-        - name: Publish to Docker hub
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: Dependecies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Push new version
+        run: git push
+
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+      - name: Build Docker image
+        run: docker build . --file Dockerfile --tag kaloyanchost/my-new-resume:latest
+        
+      - name: Push to Docker Hub
+        run: docker push kaloyanchost/my-new-resume:latest
