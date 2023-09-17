@@ -28,7 +28,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 
         uses: actions/checkout@v3
       - name: Set up Node
         uses: actions/setup-node@v3
@@ -49,24 +49,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-  Docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+
+      - name: Build and Push to Docker Hub
+        uses: mr-smithers-excellent/docker-build-push@v4
         with:
-          node-version: 16
-
-      - name: setup git config
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-
-      - name: Login to DockerHub Registry
-        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-
-      - name: Build Docker image
-        run: docker build . --file Dockerfile --tag kaloyanchost/kaloyanchost.github.io:latest
-
-      - name: Push to Docker Hub
-        run: docker push kaloyanchost/KaloyanchoSt.github.io:latest
+          image: kaloyanchost/portfolio
+          registry: docker.io
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
