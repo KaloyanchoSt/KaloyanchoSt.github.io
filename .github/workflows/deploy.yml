@@ -62,12 +62,6 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
-      - name: Dependecies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
