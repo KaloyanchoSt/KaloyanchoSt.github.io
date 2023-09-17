@@ -60,7 +60,7 @@ jobs:
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+          git config kaloyanchost@gmail.com "<>"
 
       - name: Dependecies
         run: npm ci
@@ -76,6 +76,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag kaloyanchost/my-new-resume:latest
-        
+
       - name: Push to Docker Hub
         run: docker push kaloyanchost/my-new-resume:latest
