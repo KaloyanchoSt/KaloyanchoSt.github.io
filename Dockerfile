@@ -1,9 +1,9 @@
-FROM node:lts-alpine
+FROM node:lts-alpine as builder
 
 WORKDIR /app
-
 COPY . ./
+RUN npm install && npm run build
 
-RUN npm install
+FROM nginx:alpine
 
-CMD ["npm", "run", "dev"]
+COPY --from=builder /app/dist /usr/share/nginx/html
