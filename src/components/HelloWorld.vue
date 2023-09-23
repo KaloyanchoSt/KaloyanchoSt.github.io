@@ -1,6 +1,12 @@
 <template>
-  <v-container class="fill-height">
-    <p></p>
+  <VContainer fluid>
+    <VRow class="align-center justify-center">
+      <VCol cols="auto">
+        <ThemeProvider theme="light">
+          <BaseTemplate></BaseTemplate>
+        </ThemeProvider>
+      </VCol>
+    </VRow>
     <v-responsive class="align-center text-center fill-height">
       <v-img height="300" src="@/assets/logo.svg" />
 
@@ -19,11 +25,7 @@
             target="_blank"
             variant="text"
           >
-            <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
-              start
-            />
+            <v-icon icon="mdi-view-dashboard" size="large" start />
 
             Components
           </v-btn>
@@ -39,11 +41,7 @@
             target="_blank"
             variant="flat"
           >
-            <v-icon
-              icon="mdi-speedometer"
-              size="large"
-              start
-            />
+            <v-icon icon="mdi-speedometer" size="large" start />
 
             Get Started
           </v-btn>
@@ -57,20 +55,32 @@
             target="_blank"
             variant="text"
           >
-            <v-icon
-              icon="mdi-account-group"
-              size="large"
-              start
-            />
+            <v-icon icon="mdi-account-group" size="large" start />
 
             Community
           </v-btn>
         </v-col>
       </v-row>
     </v-responsive>
-  </v-container>
+  </VContainer>
 </template>
 
-<script setup lang="ts">
-  //
+<script lang="ts">
+import { defineComponent } from "vue";
+import BaseTemplate from "@/Components/BaseTemplate.vue";
+import EducationTimeline from "@/Components/EducationTimeline.vue";
+import { ThemeProvider } from "@material-ui/core/styles";
+
+export default defineComponent({
+  name: "HellowWorld",
+  components: {
+    BaseTemplate,
+    EducationTimeline,
+  },
+  data() {
+    return {
+      message: "Hello!",
+    };
+  },
+});
 </script>
