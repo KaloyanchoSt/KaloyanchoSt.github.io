@@ -1,5 +1,6 @@
 <template>
   <v-container class="fill-height">
+    <p></p>
     <v-responsive class="align-center text-center fill-height">
       <v-img height="300" src="@/assets/logo.svg" />
 
