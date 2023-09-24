@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import HelloWorld from "@/Components/HelloWorld.vue";
+import HelloWorld from "@/Components/HelloWorld";
 import { useTheme } from "vuetify";
 
 const theme = useTheme();
