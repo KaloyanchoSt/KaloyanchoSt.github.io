@@ -1,32 +1,36 @@
 <template>
-  <div>
-    <v-timeline side="end">
-      <v-timeline-item
-        v-for="item in items"
-        :key="item.ID"
-        dot-color="primary"
-        size="small"
-      >
-      <!-- :icon="item.icon -->
-        <v-alert :value="true" color="primary"> 
-          Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola
-          imperdiet nec ut, sed euismod convenire principes at. Est et nobis
-          iisque percipit, an vim zril disputando voluptatibus, vix an salutandi
-          sententiae.
-        </v-alert>
-      </v-timeline-item>
-    </v-timeline>
-  </div>
+  <VTimeline side="end">
+    <VTimelineItem
+      class="timeline-item"
+      v-for="item in items"
+      :key="item.ID"
+      dot-color="primary"
+      size="small"
+    >
+      <template v-slot:opposite>
+        <h5>{{ item.From }} - {{ item.Until }}</h5>
+        <p class="text-body-2">{{ item.Location }}</p>
+      </template>
+      <VCard id="vcard" class="mx-auto" variant="flat">
+        <VCardTitle id="card-title" class="text-h9">
+          {{ item.Specialty }}</VCardTitle
+        >
+        <VCardSubtitle id="card-subtitle" class="text-primary font-weight-bold text-h9">
+          {{ item.Institution }}
+        </VCardSubtitle>
+        <VCardText id="card-text">{{ item.Subjects.join(", ") }} </VCardText>
+      </VCard>
+    </VTimelineItem>
+  </VTimeline>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { EducationViewModel } from "@/Types/Education";
-//import { EdicationViewModel }from "../Types/Education";
+import { EducationViewModel } from "@/Types/BaseSheet";
 
-// interface BaseSheetData {
-//   items: Array<EdicationViewModel>;
-// }
+interface EducationTimelineData {
+  cardVariant: string;
+}
 
 export default defineComponent({
   name: "EducationTimeline",
@@ -36,22 +40,21 @@ export default defineComponent({
       type: Array<EducationViewModel>,
     },
   },
-  data() {
+  data(): EducationTimelineData {
     return {
-      // items: [
-      //   {
-      //     ID: 1,
-      //     color: "info",
-      //     icon: "mdi-information",
-      //   },
-      //   {
-      //     ID: 2,
-      //     color: "error",
-      //     icon: "mdi-alert-circle",
-      //   },
-      // ],
+      cardVariant: "flat",
     };
   },
 });
 </script>
-@/types/Education
+
+<style scoped>
+#card-title {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+#card-text {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+</style>
