@@ -67,8 +67,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BaseSheet from "@/Components/BaseSheet";
-import EducationTimeline from "@/Components/EducationTimeline";
+import BaseSheet from "@/Components/BaseSheet.vue";
+import EducationTimeline from "@/Components/EducationTimeline.vue";
 //import { ThemeProvider } from "@material-ui/core/styles";
 
 export default defineComponent({
