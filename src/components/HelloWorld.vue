@@ -4,7 +4,7 @@
       <VCol cols="auto">
         <!-- <ThemeProvider theme="light">
         </ThemeProvider> -->
-          <BaseTemplate></BaseTemplate>
+          <BaseSheet></BaseSheet>
       </VCol>
     </VRow>
     <v-responsive class="align-center text-center fill-height">
@@ -67,14 +67,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BaseTemplate from "@/Components/BaseTemplate.vue";
+import BaseSheet from "@/Components/BaseSheet.vue";
 import EducationTimeline from "@/Components/EducationTimeline.vue";
 //import { ThemeProvider } from "@material-ui/core/styles";
 
 export default defineComponent({
   name: "HellowWorld",
   components: {
-    BaseTemplate,
+    BaseSheet,
     EducationTimeline,
   },
   data() {

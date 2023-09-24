@@ -36,13 +36,13 @@
 import { defineComponent } from "vue";
 import EducationTimeline from ".EducationTimeline.vue";
 
-interface BaseTemplateData {
+interface BaseSheetData {
   items: Array<Object>;
 }
 
 export default defineComponent({
-  name: "BaseTemplate",
-  data(): BaseTemplateData {
+  name: "BaseSheet",
+  data(): BaseSheetData {
     return {
       items: [
         {

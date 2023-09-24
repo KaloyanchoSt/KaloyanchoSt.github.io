@@ -24,7 +24,7 @@ import { defineComponent } from "vue";
 import { EducationViewModel } from "@/Types/Education";
 //import { EdicationViewModel }from "../Types/Education";
 
-// interface BaseTemplateData {
+// interface BaseSheetData {
 //   items: Array<EdicationViewModel>;
 // }
 

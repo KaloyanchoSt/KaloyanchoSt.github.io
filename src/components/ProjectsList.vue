@@ -3,14 +3,13 @@
   <v-timeline side="end">
     <v-timeline-item
       v-for="item in items"
-      :key="item.id"
-      :dot-color="item.color"
+      :key="item.ID"
+      dot-color="primary"
       size="small"
     >
       <v-alert
         :value="true"
-        :color="item.color"
-        :icon="item.icon"
+        color="secondary"
       >
         Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
       </v-alert>
@@ -21,8 +20,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { ProjectViewModel } from "@/Types/Project";
 
-interface BaseTemplateData {
+interface ProjectListData {
   items: Array<Object>;
 }
 
@@ -31,10 +31,10 @@ export default defineComponent({
   props: {
     items: {
       required: true,
-      type: Array<EdicationViewModel>,
+      type: Array<ProjectViewModel>,
     },
   },
-  data(): BaseTemplateData {
+  data(): ProjectListData {
     return {
       items: [
         {
