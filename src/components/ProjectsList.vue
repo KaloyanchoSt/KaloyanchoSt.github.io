@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ProjectViewModel } from "@/types/Project";
+import { ProjectViewModel } from "@/Types/Project";
 
 interface ProjectListData {
   items: Array<Object>;

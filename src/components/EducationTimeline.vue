@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { EducationViewModel } from "@/types/Education";
+import { EducationViewModel } from "@/Types/Education";
 //import { EdicationViewModel }from "../Types/Education";
 
 // interface BaseSheetData {
