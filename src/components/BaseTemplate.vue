@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import EducationTimeline from "@/Components/EducationTimeline.vue";
+import EducationTimeline from ".EducationTimeline.vue";
 
 interface BaseTemplateData {
   items: Array<Object>;

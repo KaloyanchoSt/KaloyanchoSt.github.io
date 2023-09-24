@@ -11,7 +11,7 @@ import 'vuetify/styles'
 // Composables
 import { createVuetify, ThemeDefinition  } from 'vuetify'
 
-import colors from 'vuetify/lib/util/colors'
+//import colors from 'vuetify/lib/util/colors'
 import { md3 } from 'vuetify/blueprints'
 // const myCustomLightTheme: ThemeDefinition = {
 //   dark: false,

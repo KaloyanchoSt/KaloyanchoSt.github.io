@@ -27,7 +27,13 @@ interface BaseTemplateData {
 }
 
 export default defineComponent({
-  name: "BaseTemplate",
+  name: "ProjectList",
+  props: {
+    items: {
+      required: true,
+      type: Array<EdicationViewModel>,
+    },
+  },
   data(): BaseTemplateData {
     return {
       items: [

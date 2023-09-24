@@ -2,9 +2,9 @@
   <VContainer fluid>
     <VRow class="align-center justify-center">
       <VCol cols="auto">
-        <ThemeProvider theme="light">
+        <!-- <ThemeProvider theme="light">
+        </ThemeProvider> -->
           <BaseTemplate></BaseTemplate>
-        </ThemeProvider>
       </VCol>
     </VRow>
     <v-responsive class="align-center text-center fill-height">
@@ -69,7 +69,7 @@
 import { defineComponent } from "vue";
 import BaseTemplate from "@/Components/BaseTemplate.vue";
 import EducationTimeline from "@/Components/EducationTimeline.vue";
-import { ThemeProvider } from "@material-ui/core/styles";
+//import { ThemeProvider } from "@material-ui/core/styles";
 
 export default defineComponent({
   name: "HellowWorld",
