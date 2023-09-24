@@ -1,6 +1,6 @@
 <template>
   <VContainer fluid>
-    <VRow class="align-center justify-center">
+    <VRow class="justify-center align-center">
       <VCol cols="auto">
         <!-- <ThemeProvider theme="light">
         </ThemeProvider> -->

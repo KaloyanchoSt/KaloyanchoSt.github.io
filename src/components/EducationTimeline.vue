@@ -3,11 +3,12 @@
     <v-timeline side="end">
       <v-timeline-item
         v-for="item in items"
-        :key="item.id"
-        :dot-color="item.color"
+        :key="item.ID"
+        dot-color="primary"
         size="small"
       >
-        <v-alert :value="true" :color="item.color" :icon="item.icon">
+      <!-- :icon="item.icon -->
+        <v-alert :value="true" color="primary"> 
           Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola
           imperdiet nec ut, sed euismod convenire principes at. Est et nobis
           iisque percipit, an vim zril disputando voluptatibus, vix an salutandi
@@ -20,7 +21,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { EdicationViewModel } from "@/Types/Education";
+import { EducationViewModel } from "@/Types/Education";
 //import { EdicationViewModel }from "../Types/Education";
 
 // interface BaseTemplateData {
@@ -32,7 +33,7 @@ export default defineComponent({
   props: {
     items: {
       required: true,
-      type: Array<EdicationViewModel>,
+      type: Array<EducationViewModel>,
     },
   },
   data() {

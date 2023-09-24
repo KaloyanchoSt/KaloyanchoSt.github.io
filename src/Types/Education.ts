@@ -1,4 +1,4 @@
-export interface EdicationViewModel {
+export interface EducationViewModel {
   ID: number;
   From: Date;
   Until: Date;
