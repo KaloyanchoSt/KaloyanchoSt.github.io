@@ -96,7 +96,7 @@ import ExpirienceTimeline from "@/components/ExpirienceTimeline.vue";
 import {
   getBaseSheetDetails,
   getEmptyBaseSheetViewModel,
-} from "@/Services/BaseSheetServices";
+} from "@/services/BaseSheetServices";
 import { BaseSheetViewModel } from "@/Types/BaseSheet";
 
 interface BaseSheetData {
