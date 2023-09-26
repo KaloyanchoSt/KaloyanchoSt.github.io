@@ -53,7 +53,7 @@
         </ExpirienceTimeline>
 
         <VDivider :thickness="20" class="border-opacity-0"></VDivider>
-        
+
         <EducationTimeline
           :items="baseSheetDetails.Education"
         ></EducationTimeline>
@@ -79,6 +79,7 @@
         </VTimeline> -->
       </div>
     </VSheet>
+    <!-- TODO -->
     <!-- <VCard width="1000" variant="outlined" text="">
         <VCardItem>
           <VCardTitle class="red--text">Kaloyan Stefanov</VCardTitle>
@@ -96,7 +97,7 @@ import ExpirienceTimeline from "@/components/ExpirienceTimeline.vue";
 import {
   getBaseSheetDetails,
   getEmptyBaseSheetViewModel,
-} from "@/services/BaseSheetServices";
+} from "@/Services/BaseSheetServices";
 import { BaseSheetViewModel } from "@/Types/BaseSheet";
 
 interface BaseSheetData {
@@ -132,3 +133,4 @@ export default defineComponent({
   },
 });
 </script>
+@/Services/BaseSheetServices
