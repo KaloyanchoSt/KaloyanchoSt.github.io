@@ -22,13 +22,13 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
           ID: 1,
           From: "01/2017",
           Until: "Present",
-          Company: "Ada-soft",
           Position: "Software Developer",
           Location: "Sofia, Bulgaria",
           Projects: [
             {
               ID: 1,
               Name: "CRM",
+              For: "Ada-soft",
               From: "04/2019",
               Until: "Present",
               Description: "CRM: provides easy access to information from the desktop application EasyCheck, in the Web",
@@ -88,7 +88,49 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
           Subjects: [],
         },
       ],
-      Projects: [{}, {}, {}],
+      Projects: [{
+        ID: 1,
+        From: "04/2016",
+        Until: "02/2017",
+        Name: "Software Training",
+        For: "Telerik Academy",
+        Description: "https://github.com/KaloyanchoSt/Telerik-Academy-HW On this github, you can find all my homework and team projects from my training at Telerik Academy in April 2016–2017",
+        Technologies: [
+          "JavaScript",
+          "CSS",
+          "HTML",
+          ".NET",
+          "SQL"
+        ],
+      },
+      {
+        ID: 2,
+        From: "01/2008",
+        Until: "06/2008",
+        Name: "Static webpage",
+        For: "National High School in Finance and Business",
+        Description: "Building and maintaining webpage containing the products and services for my high school training firm",
+        Technologies: [
+          "JavaScript",
+          "CSS",
+          "HTML",
+          "Photoshop"
+        ]
+      }, {
+        ID: 3,
+        From: "2006",
+        Until: "2008",
+        Name: "Static webpage",
+        For: "Personal",
+        Description: "Web page designed with Photoshop, implemented scripts for news feed and latest forum posts. Also includes redesigned and modified phpBB forum ",
+        Technologies: [
+          "JavaScript",
+          "CSS",
+          "HTML",
+          "Photoshop",
+          "SQL"
+        ]
+      }],
     });
   });
 }

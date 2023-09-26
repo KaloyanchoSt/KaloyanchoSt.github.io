@@ -99,6 +99,7 @@ import {
   getEmptyBaseSheetViewModel,
 } from "@/Services/BaseSheetServices";
 import { BaseSheetViewModel } from "@/Types/BaseSheet";
+import { useToast, TYPE } from "vue-toastification";
 
 interface BaseSheetData {
   baseSheetDetails: BaseSheetViewModel;
@@ -124,8 +125,13 @@ export default defineComponent({
     async getEducationData() {
       try {
         this.loading = true;
+        // const toast = useToast();
+        // console.log(toast);
+        // console.log(useToast());
+
         this.baseSheetDetails = await getBaseSheetDetails();
       } catch (error) {
+        useToast().error("I'm an info toast!", { type: TYPE.ERROR });
       } finally {
         this.loading = false;
       }

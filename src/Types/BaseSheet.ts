@@ -23,6 +23,7 @@ export interface ProjectViewModel {
   From: Date | string;
   Until: Date | string;
   Name: string;
+  For: string;
   Description: string;
   Technologies: string[];
 }
@@ -31,7 +32,7 @@ export interface ExperienceViewModel {
   ID: number;
   From: Date | string;
   Until: Date | string | null;
-  Company: string;
+  //Company: string;
   Location: string;
   Position: string;
   Projects: Array<ProjectViewModel>;
