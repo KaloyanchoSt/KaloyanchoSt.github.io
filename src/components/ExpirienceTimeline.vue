@@ -12,9 +12,9 @@
       </template>
       <VCard class="elevation-2">
         <VCardTitle class="text-h9"> {{ item.Position }}</VCardTitle>
-        <VCardSubtitle class="text-h9">
+        <!-- <VCardSubtitle class="text-h9">
           {{ item.Company }}
-        </VCardSubtitle>
+        </VCardSubtitle> -->
         <VCardText>
           <template #default
             ><li v-for="subItem in item.Projects">
