@@ -8,20 +8,33 @@
       max-width="940"
     >
       <div>
-        <h2 class="text-h4 font-weight-black text-orange">
+        <div class="text-h4 font-weight-black text-orange">
           {{ baseSheetDetails.Name }}
-        </h2>
+        </div>
 
-        <div class="text-h5 font-weight-medium mb-2">
+        <!-- <div class="text-h5 font-weight-medium mb-2"> -->
+        <div class="text-primary font-weight-bold text-h6">
           {{ baseSheetDetails.Position }}
+        </div>
+
+        <!-- Contacts -->
+        <div>
+          <ul>
+            <li v-for="item in baseSheetDetails.Contacts" :key="item.ID">
+              <p class="text-body-2">{{ item.Icon }}{{ item.Value }}</p>
+              <!-- <p class="text-body-2">{{ item.Description }}</p>
+              {{ item.Technologies.join(", ") }} -->
+            </li>
+          </ul>
         </div>
 
         <p class="text-body-2 mb-4">
           {{ baseSheetDetails.Summary }}
         </p>
 
-        <ExpirienceTimeline :items="baseSheetDetails.Experience">
-        </ExpirienceTimeline>
+        <ExpirienceTimeline
+          :items="baseSheetDetails.Experience"
+        ></ExpirienceTimeline>
 
         <VDivider :thickness="20" class="border-opacity-0"></VDivider>
 
@@ -79,4 +92,14 @@ export default defineComponent({
   },
 });
 </script>
-@/Services/BaseSheetServices
+
+<style scoped>
+ul {
+  display: table;
+  /* You can also add some margins here to make it look prettier */
+}
+ul > li {
+  display: table-cell;
+  /* You can also add some margins here to make it look prettier */
+}
+</style>
