@@ -16,39 +16,12 @@
         <div class="text-primary font-weight-bold text-h6">
           {{ baseSheetDetails.Position }}
         </div>
-
         <!-- Contacts -->
-        <div>
-          <ul>
-            <li v-for="contact in baseSheetDetails.Contacts" :key="contact.ID">
-              <!-- <VIcon icon="mdi-home" /> -->
-              <!-- {{contact.Icon}}
-              <VIcon small color="primary" :icon="contact.Icon"></VIcon> -->
-              <!-- <VImg height="2" :src="contact.Icon" /> -->
-              <VTooltip location="top">
-                <template v-slot:activator="{ props }">
-                  <a
-                    v-bind="props"
-                    color="primary"
-                    class="text-body-2"
-                    :href="`${contact.Type}:${contact.Value}`"
-                  >
-                    <VIcon
-                      class="mr-1"
-                      x-small
-                      color="primary"
-                      :icon="contact.Icon"
-                    />{{ contact.Value }}
-                  </a>
-                </template>
-                <span>{{ visit }}</span>
-              </VTooltip>
-              <!-- <p class="text-body-2">{{ item.Description }}</p>
-              {{ item.Technologies.join(", ") }} -->
-            </li>
-          </ul>
-        </div>
-
+        <VRow>
+          <VCol cols="12">
+            <ContactList :items="baseSheetDetails.Contacts"> </ContactList>
+          </VCol>
+        </VRow>
         <!-- Summary -->
         <div>
           <p class="text-primary font-weight-bold text-h7 mt-7">SUMMARY</p>
@@ -88,6 +61,7 @@ import { defineComponent } from "vue";
 import EducationTimeline from "@/Components/EducationTimeline.vue";
 import ExpirienceTimeline from "@/Components/ExpirienceTimeline.vue";
 import ProjectList from "@/Components/ProjectList.vue";
+import ContactList from "@/Components/ContactList.vue";
 import {
   getBaseSheetDetails,
   getEmptyBaseSheetViewModel,
@@ -98,8 +72,6 @@ import { useToast, TYPE } from "vue-toastification";
 interface BaseSheetData {
   baseSheetDetails: BaseSheetViewModel;
   loading: boolean;
-  contactIcon: string;
-  visit: string;
 }
 
 export default defineComponent({
@@ -108,20 +80,15 @@ export default defineComponent({
     EducationTimeline,
     ExpirienceTimeline,
     ProjectList,
+    ContactList,
   },
   data(): BaseSheetData {
     return {
       baseSheetDetails: getEmptyBaseSheetViewModel(),
       loading: false,
-      contactIcon: "mdi-home",
-      visit: "Click"
     };
   },
   mounted() {
-    console.log(this.$vuetify);
-    console.log(this.$vuetify.icons);
-    console.log(this.$vuetify.icons.aliases?.calendar);
-    console.log(this.$vuetify);
     this.getEducationData();
   },
   methods: {
@@ -130,7 +97,6 @@ export default defineComponent({
         this.loading = true;
 
         this.baseSheetDetails = await getBaseSheetDetails();
-        console.log("base details", this.baseSheetDetails.Contacts);
       } catch (error) {
         useToast().error("Error while getting resume data", {
           type: TYPE.ERROR,
@@ -142,24 +108,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-ul {
-  display: flex;
-  align-items: stretch; /* Default */
-  justify-content: space-between;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-li {
-  display: block;
-  flex: 0 1 auto; /* Default */
-  list-style-type: none;
-}
-a:link {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
-</style>
