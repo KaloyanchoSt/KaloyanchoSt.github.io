@@ -12,13 +12,19 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
       Summary:
         "Software developer with thorough hands-on experience in participating in development of application architecture and design, testing, migration, bug fixing and mantaining, drafting functional and technical documentation.",
       Contacts: [
-        { ID: 1, Type: "Phone", Value: "0896487238", Icon: "" },
-        { ID: 2, Type: "Email", Value: "kaloyanchost@gmail.com", Icon: "" },
+        { ID: 1, Type: "tel", Value: "0896487238", Icon: "mdi-phone" },
+        { ID: 2, Type: "mailto", Value: "kaloyanchost@gmail.com", Icon: "mdi-email" },
+        // {
+        //   ID: 3,
+        //   Type: "LinkedIn",
+        //   Value: "www.linkedin.com/in/kaloyan-stefanov-104566113/",
+        //   Icon: "mdi-linkedin",
+        // },
         {
-          ID: 1,
-          Type: "LinkedIn",
-          Value: "www.linkedin.com/in/kaloyan-stefanov-104566113/",
-          Icon: "",
+          ID: 4,
+          Type: "http",
+          Value: "https://github.com/KaloyanchoSt",
+          Icon: "mdi-github",
         },
       ],
       Experience: [
