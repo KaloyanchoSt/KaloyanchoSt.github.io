@@ -4,14 +4,12 @@
       border
       class="d-flex align-center justify-center flex-wrap mx-auto px-12 py-10"
       width="100%"
-      max-width="940"
     >
-      <!-- Name -->
       <div>
+        <!-- Name -->
         <div class="text-h4 font-weight-black text-orange">
           {{ baseSheetDetails.Name.toUpperCase() }}
         </div>
-
         <!-- Position -->
         <div class="text-primary font-weight-bold text-h6">
           {{ baseSheetDetails.Position }}
@@ -24,7 +22,9 @@
         </VRow>
         <!-- Summary -->
         <div>
-          <p class="text-primary font-weight-bold text-h7 mt-7">SUMMARY</p>
+          <p class="text-primary font-weight-bold text-h7 mt-7">
+            {{ summaryTitle }}
+          </p>
           <p class="text-body-2 mb-7">
             {{ baseSheetDetails.Summary }}
           </p>
@@ -66,12 +66,13 @@ import {
   getBaseSheetDetails,
   getEmptyBaseSheetViewModel,
 } from "@/Services/BaseSheetServices";
-import { BaseSheetViewModel } from "@/Types/BaseSheet";
+import { BaseSheetViewModel, ContactType } from "@/Types/BaseSheet";
 import { useToast, TYPE } from "vue-toastification";
 
 interface BaseSheetData {
   baseSheetDetails: BaseSheetViewModel;
   loading: boolean;
+  summaryTitle: string;
 }
 
 export default defineComponent({
@@ -86,6 +87,7 @@ export default defineComponent({
     return {
       baseSheetDetails: getEmptyBaseSheetViewModel(),
       loading: false,
+      summaryTitle: "SUMMARY",
     };
   },
   mounted() {
@@ -97,6 +99,14 @@ export default defineComponent({
         this.loading = true;
 
         this.baseSheetDetails = await getBaseSheetDetails();
+
+        // Remove LinkedIn contact
+        const indexOfLinkedIn = this.baseSheetDetails.Contacts.findIndex(
+          (obj) => {
+            return obj.Type === ContactType.LinkedIn;
+          }
+        );
+        this.baseSheetDetails.Contacts.splice(indexOfLinkedIn, 1);
       } catch (error) {
         useToast().error("Error while getting resume data", {
           type: TYPE.ERROR,

@@ -13,7 +13,7 @@
         :key="project.ID"
         :title="`${project.Name}`"
       >
-        <VListItemTitle class="text-primary font-weight-bold text-h9">
+        <VListItemTitle class="text-primary font-weight-bold text-subtitle-2">
           {{ project.For }}
         </VListItemTitle>
       </VListItem>

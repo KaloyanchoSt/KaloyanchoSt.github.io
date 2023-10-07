@@ -2,12 +2,12 @@
   <div>
     <VRow>
       <VCol cols="12">
-        <p class="text-primary font-weight-bold text-h7">
+        <p class="text-primary font-weight-bold">
           {{ expirienceTitle }}
         </p>
       </VCol>
     </VRow>
-    <VTimeline side="end">
+    <VTimeline side="end" truncate-line="start">
       <VTimelineItem
         v-for="item in items"
         :key="item.ID"
@@ -19,12 +19,9 @@
             class="text-body-2 font-weight-bold"
             v-text="`${item.From}-${item.Until}`"
           ></div>
-          <!-- <span class="text-h7">{{ item.From }} - {{ item.Until }}</span> -->
-          <!-- <h5>{{ item.From }} - {{ item.Until }}</h5> -->
-          <!-- <p class="text-body-2">{{ item.Location }}</p> -->
         </template>
-        <VCard class="elevation-2">
-          <VCardTitle class="text-h9"> {{ item.Position }}</VCardTitle>
+        <VCard variant="flat">
+          <VCardTitle class="font-weight-regular text-h6"> {{ item.Position }}</VCardTitle>
           <!-- <VCardSubtitle class="text-h9">
           {{ item.Company }}
         </VCardSubtitle> -->

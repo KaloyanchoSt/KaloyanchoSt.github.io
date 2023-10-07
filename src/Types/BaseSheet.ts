@@ -41,6 +41,14 @@ export interface ExperienceViewModel {
 export interface ContactViewModel {
   ID: number;
   Value: string;
-  Type: string;
+  Type: ContactType;
   Icon: string;
+  Uri: string;
+}
+
+export enum ContactType {
+  Mobile = "Mobile",
+  Email = "Email",
+  LinkedIn = "LinkedIn",
+  GitHub = "GitHub"
 }

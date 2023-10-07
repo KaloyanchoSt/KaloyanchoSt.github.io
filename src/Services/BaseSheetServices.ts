@@ -1,4 +1,5 @@
 import { BaseSheetViewModel } from "@/Types/BaseSheet";
+import { ContactType } from "@/Types/BaseSheet";
 
 /**
  *
@@ -12,19 +13,21 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
       Summary:
         "Software developer with thorough hands-on experience in participating in development of application architecture and design, testing, migration, bug fixing and mantaining, drafting functional and technical documentation.",
       Contacts: [
-        { ID: 1, Type: "tel", Value: "0896487238", Icon: "mdi-phone" },
-        { ID: 2, Type: "mailto", Value: "kaloyanchost@gmail.com", Icon: "mdi-email" },
-        // {
-        //   ID: 3,
-        //   Type: "LinkedIn",
-        //   Value: "www.linkedin.com/in/kaloyan-stefanov-104566113/",
-        //   Icon: "mdi-linkedin",
-        // },
+        { ID: 1, Type: ContactType.Mobile, Value: "0896487238", Icon: "mdi-phone", Uri: "tel" },
+        { ID: 2, Type: ContactType.Email, Value: "kaloyanchost@gmail.com", Icon: "mdi-email", Uri: "mailto" },
+        {
+          ID: 3,
+          Type: ContactType.LinkedIn,
+          Value: "www.linkedin.com/in/kaloyan-stefanov-104566113/",
+          Icon: "mdi-linkedin",
+          Uri: "https"
+        },
         {
           ID: 4,
-          Type: "http",
+          Type: ContactType.GitHub,
           Value: "https://github.com/KaloyanchoSt",
           Icon: "mdi-github",
+          Uri: "http"
         },
       ],
       Experience: [
