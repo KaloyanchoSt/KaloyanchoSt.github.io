@@ -9,7 +9,7 @@
         <!-- Name -->
         <VRow>
           <VCol cols="8">
-            <div class="text-h4 font-weight-black text-orange">
+            <div class="text-h4 font-weight-black">
               {{ baseSheetDetails.Name.toUpperCase() }}
             </div>
           </VCol>
