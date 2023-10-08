@@ -23,7 +23,6 @@
               ></div>
               <span class="secondary">{{ item.Location }}</span>
             </template>
-            <!-- <VCard id="vcard" variant="flat"> -->
             <div>
               <ul>
                 <li>
@@ -33,29 +32,6 @@
                 </li>
               </ul>
             </div>
-            <!-- <VList class="ma-0 pa-0">
-                <VListItem :title="`${item.Specialty}`" class="ma-0 pa-0">
-                  <VListItemTitle
-                    class="text-primary font-weight-bold text-subtitle-2"
-                  >
-                    {{ item.Institution }}
-                  </VListItemTitle>
-                  <VListItemSubtitle>
-                    {{ item.Subjects.join(", ") }}
-                  </VListItemSubtitle>
-                </VListItem>
-              </VList> -->
-            <!-- <VCardTitle id="card-title" class="font-weight-regular text-h6">
-            {{ item.Specialty }}</VCardTitle
-          >
-          <VCardSubtitle
-            id="card-subtitle"
-            class="text-primary font-weight-bold"
-          >
-            {{ item.Institution }}
-          </VCardSubtitle>
-          <VCardText id="card-text">{{ item.Subjects.join(", ") }} </VCardText> -->
-            <!-- </VCard> -->
           </VTimelineItem>
         </VTimeline>
       </VCol>
