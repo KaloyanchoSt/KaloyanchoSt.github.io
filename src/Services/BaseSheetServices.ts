@@ -44,10 +44,11 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
               For: "Ada-soft",
               From: "04/2019",
               Until: "Present",
-              Description: "CRM: provides easy access to information from the desktop application EasyCheck, in the Web",
+              Description: "CRM: provides easy access to information from the desktop application EasyCheck, on the Web",
               Technologies: [
                 "Vue.js",
                 "JavaScript",
+                "TypeScript",
                 "CSS",
                 "HTML",
                 ".NET Core",

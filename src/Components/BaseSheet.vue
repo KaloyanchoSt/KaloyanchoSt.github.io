@@ -1,15 +1,23 @@
 <template>
   <div>
     <VSheet
-      border
-      class="d-flex align-center justify-center flex-wrap mx-auto px-12 py-10"
+      class="align-center mx-auto px-10 py-6"
+      :max-width="900"
       width="100%"
     >
       <div>
         <!-- Name -->
-        <div class="text-h4 font-weight-black text-orange">
-          {{ baseSheetDetails.Name.toUpperCase() }}
-        </div>
+        <VRow>
+          <VCol cols="8">
+            <div class="text-h4 font-weight-black text-orange">
+              {{ baseSheetDetails.Name.toUpperCase() }}
+            </div>
+          </VCol>
+          <!-- Print -->
+          <!-- <VCol cols="4" align="right">
+            <VBtn @click="exportToPDF">Print</VBtn>
+          </VCol> -->
+        </VRow>
         <!-- Position -->
         <div class="text-primary font-weight-bold text-h6">
           {{ baseSheetDetails.Position }}
@@ -21,14 +29,19 @@
           </VCol>
         </VRow>
         <!-- Summary -->
-        <div>
-          <p class="text-primary font-weight-bold text-h7 mt-7">
-            {{ summaryTitle }}
-          </p>
-          <p class="text-body-2 mb-7">
-            {{ baseSheetDetails.Summary }}
-          </p>
-        </div>
+        <VRow>
+          <VCol cols="12">
+            <p class="bold-primary">
+              {{ summaryTitle }}
+            </p>
+          </VCol>
+          <VCol cols="12">
+            <p class="text-body-2">
+              {{ baseSheetDetails.Summary }}
+            </p>
+          </VCol>
+        </VRow>
+        <div></div>
         <!-- Experience -->
         <VRow>
           <VCol cols="12">
@@ -115,6 +128,16 @@ export default defineComponent({
         this.loading = false;
       }
     },
+    exportToPDF() {
+      window.print();
+    },
   },
 });
 </script>
+
+<style scoped>
+.bold-primary {
+  color: #1867c0;
+  font-weight: bold;
+}
+</style>

@@ -10,11 +10,9 @@
               class="text-body-2"
               :href="`${contact.Type}:${contact.Value}`"
             >
-              <VIcon
-                class="mr-1"
-                color="primary"
-                :icon="contact.Icon"
-              />{{ contact.Value }}
+              <VIcon class="mr-1" color="primary" :icon="contact.Icon" />{{
+                contact.Value
+              }}
             </a>
           </template>
           <span>{{ visit }}</span>
@@ -51,15 +49,13 @@ export default defineComponent({
 <style scoped>
 ul {
   display: flex;
-  align-items: stretch; /* Default */
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 li {
-  display: block;
-  flex: 0 1 auto; /* Default */
   list-style-type: none;
 }
 a:link {
@@ -69,5 +65,16 @@ a:link {
 }
 a:visited {
   color: black;
+}
+@media (max-width: 960px) and (min-width: 501px) {
+  li {
+    width: 100%;
+  } /* Show 2 logos per row on medium devices (tablets, phones in landscape) */
+}
+
+@media (max-width: 500px) {
+  li {
+    width: 100%;
+  } /* On small screens, show one logo per row */
 }
 </style>

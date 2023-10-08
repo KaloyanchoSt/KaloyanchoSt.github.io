@@ -1,41 +1,43 @@
 <template>
-  <div>
+  <VContainer fluid>
     <VRow>
-      <VCol cols="12">
+      <VCol class="ma-0 pa-0" cols="12">
         <p class="text-primary font-weight-bold">
           {{ educationTitle }}
         </p>
       </VCol>
     </VRow>
-    <VTimeline side="end" truncate-line="start">
-      <VTimelineItem
-        v-for="item in items"
-        :key="item.ID"
-        dot-color="primary"
-        size="small"
-        height="90"
-        id="timeline"
-      >
-        <template v-slot:opposite>
-          <div
-            class="text-body-2 font-weight-bold"
-            v-text="`${item.From}-${item.Until}`"
-          ></div>
-        </template>
-        <VCard id="vcard" class="mx-auto" variant="flat">
-          <VList lines="three">
-            <VListItem :title="`${item.Specialty}`">
-              <VListItemTitle
-                class="text-primary font-weight-bold text-subtitle-2"
-              >
-                {{ item.Institution }}
-              </VListItemTitle>
-              <VListItemSubtitle>
-                {{ item.Subjects.join(", ") }}
-              </VListItemSubtitle>
-            </VListItem>
-          </VList>
-          <!-- <VCardTitle id="card-title" class="font-weight-regular text-h6">
+    <VRow>
+      <VCol class="ma-0 pa-0" cols="12">
+        <VTimeline side="end" truncate-line="start">
+          <VTimelineItem
+            v-for="item in items"
+            :key="item.ID"
+            dot-color="primary"
+            size="small"
+            height="90"
+            id="timeline"
+          >
+            <template v-slot:opposite>
+              <div
+                class="text-body-2 font-weight-bold"
+                v-text="`${item.From}-${item.Until}`"
+              ></div>
+            </template>
+            <VCard id="vcard" variant="flat">
+              <VList lines="three" class="ma-0 pa-0">
+                <VListItem :title="`${item.Specialty}`" class="ma-0 pa-0">
+                  <VListItemTitle
+                    class="text-primary font-weight-bold text-subtitle-2"
+                  >
+                    {{ item.Institution }}
+                  </VListItemTitle>
+                  <VListItemSubtitle>
+                    {{ item.Subjects.join(", ") }}
+                  </VListItemSubtitle>
+                </VListItem>
+              </VList>
+              <!-- <VCardTitle id="card-title" class="font-weight-regular text-h6">
             {{ item.Specialty }}</VCardTitle
           >
           <VCardSubtitle
@@ -45,10 +47,12 @@
             {{ item.Institution }}
           </VCardSubtitle>
           <VCardText id="card-text">{{ item.Subjects.join(", ") }} </VCardText> -->
-        </VCard>
-      </VTimelineItem>
-    </VTimeline>
-  </div>
+            </VCard>
+          </VTimelineItem>
+        </VTimeline>
+      </VCol>
+    </VRow>
+  </VContainer>
 </template>
 
 <script lang="ts">
@@ -76,13 +80,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
-div.slot-opposite {
+/* div.slot-opposite {
   text-align: left;
 }
 #timeline {
   margin-top: 0;
   padding-top: 0;
-}
+} */
 /* #card-title {
   padding-top: 0;
   padding-bottom: 0;
