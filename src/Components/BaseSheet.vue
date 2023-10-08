@@ -9,7 +9,7 @@
         <!-- Name -->
         <VRow>
           <VCol cols="8">
-            <div class="text-h4 font-weight-black">
+            <div class="primary-bold-name">
               {{ baseSheetDetails.Name.toUpperCase() }}
             </div>
           </VCol>
@@ -19,7 +19,7 @@
           </VCol> -->
         </VRow>
         <!-- Position -->
-        <div class="text-primary font-weight-bold text-h6">
+        <div class="primary-bold-color">
           {{ baseSheetDetails.Position }}
         </div>
         <!-- Contacts -->
@@ -30,13 +30,13 @@
         </VRow>
         <!-- Summary -->
         <VRow>
-          <VCol cols="12">
-            <p class="bold-primary">
+          <VCol class="pb-0" cols="12">
+            <p class="primary-bold-color">
               {{ summaryTitle }}
             </p>
           </VCol>
-          <VCol cols="12">
-            <p class="text-body-2">
+          <VCol class="pt-0" cols="12">
+            <p class="secondary">
               {{ baseSheetDetails.Summary }}
             </p>
           </VCol>
@@ -44,7 +44,7 @@
         <div></div>
         <!-- Experience -->
         <VRow>
-          <VCol cols="12">
+          <VCol class="pl-2" cols="12">
             <ExpirienceTimeline
               :items="baseSheetDetails.Experience"
             ></ExpirienceTimeline>
@@ -52,7 +52,7 @@
         </VRow>
         <!-- Education -->
         <VRow>
-          <VCol cols="12">
+          <VCol class="pl-2" cols="12">
             <EducationTimeline
               :items="baseSheetDetails.Education"
             ></EducationTimeline>
@@ -100,7 +100,7 @@ export default defineComponent({
     return {
       baseSheetDetails: getEmptyBaseSheetViewModel(),
       loading: false,
-      summaryTitle: "SUMMARY",
+      summaryTitle: "SUMMARY.",
     };
   },
   mounted() {
@@ -135,9 +135,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.bold-primary {
-  color: #1867c0;
-  font-weight: bold;
-}
-</style>
+<style scoped></style>

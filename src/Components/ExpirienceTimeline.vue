@@ -2,14 +2,14 @@
   <VContainer fluid>
     <VRow>
       <VCol class="ma-0 pa-0" cols="12">
-        <p class="text-primary font-weight-bold">
+        <p class="primary-bold-color">
           {{ expirienceTitle }}
         </p>
       </VCol>
     </VRow>
     <VRow>
-      <VCol class="ma-0 pa-0" cols="12">
-        <VTimeline side="end" truncate-line="start">
+      <VCol cols="12">
+        <VTimeline>
           <VTimelineItem
             v-for="item in items"
             :key="item.ID"
@@ -18,27 +18,23 @@
           >
             <template v-slot:opposite>
               <div
-                class="text-body-2 font-weight-bold"
+                class="secondary-bold"
                 v-text="`${item.From}-${item.Until}`"
               ></div>
+              <span class="secondary">{{ item.Location }}</span>
             </template>
-            <VCard variant="flat">
-              <VCardTitle class="font-weight-regular text-h6">
-                {{ item.Position }}</VCardTitle
-              >
-              <!-- <VCardSubtitle class="text-h9">
-          {{ item.Company }}
-        </VCardSubtitle> -->
-              <VCardText>
-                <template #default
-                  ><li v-for="subItem in item.Projects" :key="subItem.ID">
-                    <p class="text-body-2">{{ subItem.Name }}</p>
-                    <p class="text-body-2">{{ subItem.Description }}</p>
-                    {{ subItem.Technologies.join(", ") }}
-                  </li>
-                </template>
-              </VCardText>
-            </VCard>
+            <div>
+              <p>{{ item.Position }}</p>
+              <p class="secondary-bold-color">{{ item.Company }}</p>
+              <!-- <p class="secondary">{{ item.De }}</p> -->
+              <ul>
+                <li v-for="project in item.Projects" :key="project.ID">
+                  <!-- <p class="text-body-2">{{ project.Name }}</p> -->
+                  <span class="secondary">{{ project.Description }}</span>
+                  <p class="secondary">{{ project.Technologies.join(", ") }}</p>
+                </li>
+              </ul>
+            </div>
           </VTimelineItem>
         </VTimeline>
       </VCol>
@@ -64,8 +60,26 @@ export default defineComponent({
   },
   data(): ExpirienceTimelineData {
     return {
-      expirienceTitle: "PROFESSIONAL EXPERIENCE",
+      expirienceTitle: "PROFESSIONAL EXPERIENCE.",
     };
   },
 });
 </script>
+
+<style scoped>
+ul {
+  list-style-position: inside;
+  margin: 0px;
+  padding-left: 7px;
+}
+ul {
+  list-style-type: none;
+}
+ul > li {
+  text-indent: -5px;
+}
+ul > li:before {
+  content: "- ";
+  text-indent: -5px;
+}
+</style>

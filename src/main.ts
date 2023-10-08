@@ -17,6 +17,9 @@ import { registerPlugins } from '@/Plugins'
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 
+//CSS
+import './Assets/CSS/main.css';
+
 const app = createApp(App)
 
 registerPlugins(app)

@@ -8,24 +8,32 @@
       </VCol>
     </VRow>
     <VRow>
-      <VCol class="ma-0 pa-0" cols="12">
+      <VCol  class="pt-0 pl-2" cols="12">
         <VTimeline side="end" truncate-line="start">
           <VTimelineItem
             v-for="item in items"
             :key="item.ID"
             dot-color="primary"
             size="small"
-            height="90"
-            id="timeline"
           >
             <template v-slot:opposite>
               <div
-                class="text-body-2 font-weight-bold"
+                class="secondary-bold"
                 v-text="`${item.From}-${item.Until}`"
               ></div>
+              <span class="secondary">{{ item.Location }}</span>
             </template>
-            <VCard id="vcard" variant="flat">
-              <VList lines="three" class="ma-0 pa-0">
+            <!-- <VCard id="vcard" variant="flat"> -->
+            <div>
+              <ul>
+                <li>
+                  <p>{{ item.Specialty }}</p>
+                  <p class="secondary-bold-color">{{ item.Institution }}</p>
+                  <p class="secondary">{{ item.Subjects.join(", ") }}</p>
+                </li>
+              </ul>
+            </div>
+            <!-- <VList class="ma-0 pa-0">
                 <VListItem :title="`${item.Specialty}`" class="ma-0 pa-0">
                   <VListItemTitle
                     class="text-primary font-weight-bold text-subtitle-2"
@@ -36,8 +44,8 @@
                     {{ item.Subjects.join(", ") }}
                   </VListItemSubtitle>
                 </VListItem>
-              </VList>
-              <!-- <VCardTitle id="card-title" class="font-weight-regular text-h6">
+              </VList> -->
+            <!-- <VCardTitle id="card-title" class="font-weight-regular text-h6">
             {{ item.Specialty }}</VCardTitle
           >
           <VCardSubtitle
@@ -47,7 +55,7 @@
             {{ item.Institution }}
           </VCardSubtitle>
           <VCardText id="card-text">{{ item.Subjects.join(", ") }} </VCardText> -->
-            </VCard>
+            <!-- </VCard> -->
           </VTimelineItem>
         </VTimeline>
       </VCol>
@@ -73,26 +81,10 @@ export default defineComponent({
   },
   data(): EducationTimelineData {
     return {
-      educationTitle: "EDUCATION",
+      educationTitle: "EDUCATION.",
     };
   },
 });
 </script>
 
-<style scoped>
-/* div.slot-opposite {
-  text-align: left;
-}
-#timeline {
-  margin-top: 0;
-  padding-top: 0;
-} */
-/* #card-title {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-#card-text {
-  padding-top: 0;
-  padding-bottom: 0;
-} */
-</style>
+<style scoped></style>

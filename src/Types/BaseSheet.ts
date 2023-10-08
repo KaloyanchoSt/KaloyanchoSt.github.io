@@ -12,10 +12,27 @@ export interface EducationViewModel {
   ID: number;
   From: Date | string;
   Until: Date | string;
+  Location: string;
   Institution: string;
   Specialty: string;
-  Location: string;
   Subjects: string[];
+}
+
+export interface ExperienceViewModel {
+  ID: number;
+  From: Date | string;
+  Until: Date | string | null;
+  Company: string;
+  Location: string;
+  Position: string;
+  Projects: Array<ExpirienceProjectViewModel>;
+}
+
+export interface ExpirienceProjectViewModel {
+  ID: number;
+  Name: string;
+  Description: string;
+  Technologies: string[];
 }
 
 export interface ProjectViewModel {
@@ -26,16 +43,6 @@ export interface ProjectViewModel {
   For: string;
   Description: string;
   Technologies: string[];
-}
-
-export interface ExperienceViewModel {
-  ID: number;
-  From: Date | string;
-  Until: Date | string | null;
-  //Company: string;
-  Location: string;
-  Position: string;
-  Projects: Array<ProjectViewModel>;
 }
 
 export interface ContactViewModel {

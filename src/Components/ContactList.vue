@@ -10,9 +10,10 @@
               class="text-body-2"
               :href="`${contact.Type}:${contact.Value}`"
             >
-              <VIcon class="mr-1" color="primary" :icon="contact.Icon" />{{
+              <VIcon class="mr-1" color="primary" :icon="contact.Icon" />
+              <span class="secondary">{{
                 contact.Value
-              }}
+              }}</span>
             </a>
           </template>
           <span>{{ visit }}</span>
@@ -54,17 +55,6 @@ ul {
   width: 100%;
   margin: 0;
   padding: 0;
-}
-li {
-  list-style-type: none;
-}
-a:link {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:visited {
-  color: black;
 }
 @media (max-width: 960px) and (min-width: 501px) {
   li {

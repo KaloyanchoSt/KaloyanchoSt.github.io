@@ -1,5 +1,4 @@
-import { BaseSheetViewModel } from "@/Types/BaseSheet";
-import { ContactType } from "@/Types/BaseSheet";
+import { ContactType, BaseSheetViewModel } from "@/Types/BaseSheet";
 
 /**
  *
@@ -35,16 +34,14 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
           ID: 1,
           From: "01/2017",
           Until: "Present",
+          Company: "Ada-soft",
           Position: "Software Developer",
           Location: "Sofia, Bulgaria",
           Projects: [
             {
               ID: 1,
               Name: "CRM",
-              For: "Ada-soft",
-              From: "04/2019",
-              Until: "Present",
-              Description: "CRM: provides easy access to information from the desktop application EasyCheck, on the Web",
+              Description: "CRM:provides easy access to information from the desktop application EasyCheck, on the Web",
               Technologies: [
                 "Vue.js",
                 "JavaScript",
@@ -52,6 +49,26 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
                 "CSS",
                 "HTML",
                 ".NET Core",
+                "SQL"
+              ],
+            },
+            {
+              ID: 2,
+              Name: "CompanyList",
+              Description: "CompanyList:search for a company by a unique identification code and return the data as XML",
+              Technologies: [
+                "ASP.NET Core",
+                "CSS",
+                "HTML",
+                "SQL"
+              ],
+            },
+            {
+              ID: 3,
+              Name: "Messaging service",
+              Description: "Messaging service:the main function of the module is retrieving emails with the IMAP and POP3 protocols and sending emails with using SMTP. Additional features include scheduling cronjob checking database for waiting emails.Later used as Nuget for CRM",
+              Technologies: [
+                ".NET",
                 "SQL"
               ],
             },
@@ -99,7 +116,9 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
           Institution: "National High School in Finance and Business",
           Specialty: "Management and Economics",
           Location: "Sofia, Bulgaria",
-          Subjects: [],
+          Subjects: [
+            "Participation in a training company on a Bulgarian-Austrian education project"
+          ],
         },
       ],
       Projects: [{
@@ -130,7 +149,8 @@ export function getBaseSheetDetails(): Promise<BaseSheetViewModel> {
           "HTML",
           "Photoshop"
         ]
-      }, {
+      },
+      {
         ID: 3,
         From: "2006",
         Until: "2008",

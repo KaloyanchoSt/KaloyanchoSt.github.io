@@ -1,11 +1,13 @@
 <template>
   <VApp>
     <VMain>
-      <VRow>
-        <VCol cols="12">
-          <BaseSheet ref="baseSheet" />
-        </VCol>
-      </VRow>
+      <div id="wrapper">
+        <VRow>
+          <VCol cols="12">
+            <BaseSheet ref="baseSheet" />
+          </VCol>
+        </VRow>
+      </div>
     </VMain>
   </VApp>
 </template>
@@ -23,3 +25,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+#wrapper {
+  background-color: #f3f3f3;
+}
+</style>

@@ -1,0 +1,39 @@
+li {
+    list-style-type: none;
+}
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+}
+.primary-bold-name {
+    font-weight: bold;
+    font-size: 30px;
+}
+.primary {
+    font-size: 16px;
+}
+.primary-bold {
+    font-weight: bold;
+    font-size: 16px;
+}
+.primary-bold-color {
+    color: #1867c0;
+    font-weight: bold;
+    font-size: 16px;
+}
+.secondary {
+    font-size: 12px;
+}
+.secondary-bold {
+    font-weight: bold;
+    font-size: 12px;
+}
+.secondary-bold-color {
+    color: #1867c0;
+    font-weight: bold;
+    font-size: 12px;
+}

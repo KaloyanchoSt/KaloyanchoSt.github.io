@@ -1,13 +1,26 @@
 <template>
   <div>
     <VRow>
-      <VCol cols="12">
+      <VCol class="pb-0" cols="12">
         <p class="text-primary font-weight-bold text-h7">
           {{ projectTitle }}
         </p>
       </VCol>
     </VRow>
-    <VList lines="one">
+    <VRow>
+      <VCol class="pt-0" cols="12">
+        <ul>
+          <li v-for="project in items" :key="project.ID">
+            <p>{{ project.Name }}</p>
+            <p class="secondary-bold-color">{{ project.For }}</p>
+            <span class="secondary">{{ project.Description }}</span>
+            <!-- <span class="secondary">{{ project.Description }}</span> -->
+            <p class="secondary">{{ project.Technologies.join(", ") }}</p>
+          </li>
+        </ul>
+      </VCol>
+    </VRow>
+    <!-- <VList lines="one">
       <VListItem
         v-for="project in items"
         :key="project.ID"
@@ -17,7 +30,7 @@
           {{ project.For }}
         </VListItemTitle>
       </VListItem>
-    </VList>
+    </VList> -->
   </div>
 </template>
 
@@ -39,8 +52,30 @@ export default defineComponent({
   },
   data(): ProjectListData {
     return {
-      projectTitle: "PROJECTS",
+      projectTitle: "PROJECTS.",
     };
   },
 });
 </script>
+
+<style scoped>
+ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 960px) and (min-width: 501px) {
+  li {
+    width: 100%;
+  } /* Show 2 logos per row on medium devices (tablets, phones in landscape) */
+}
+
+@media (max-width: 500px) {
+  li {
+    width: 100%;
+  } /* On small screens, show one logo per row */
+}
+</style>
