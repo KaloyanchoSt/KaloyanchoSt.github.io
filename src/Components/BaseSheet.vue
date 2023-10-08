@@ -1,7 +1,7 @@
 <template>
   <div>
     <VSheet
-      class="align-center mx-auto px-10 py-6"
+      class="align-center mx-auto px-8 py-6"
       :max-width="900"
       width="100%"
     >
