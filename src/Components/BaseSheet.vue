@@ -1,71 +1,78 @@
 <template>
   <div>
-    <VSheet
-      class="align-center mx-auto px-8 py-6"
-      :max-width="900"
-      width="100%"
+    <VSkeletonLoader
+      :loading="loading"
+      class="mx-auto border"
+      max-width="900"
+      type="heading, subtitle, article, sentences, list-item-three-line"
     >
-      <div>
-        <!-- Name -->
-        <VRow>
-          <VCol cols="8">
-            <div class="primary-bold-name">
-              {{ baseSheetDetails.Name.toUpperCase() }}
-            </div>
-          </VCol>
-          <!-- Print -->
-          <!-- <VCol cols="4" align="right">
+      <VSheet
+        class="align-center mx-auto px-8 py-6"
+        :max-width="900"
+        width="100%"
+      >
+        <div>
+          <!-- Name -->
+          <VRow>
+            <VCol cols="12">
+              <div class="primary-bold-name">
+                {{ baseSheetDetails.Name.toUpperCase() }}
+              </div>
+            </VCol>
+            <!-- Print -->
+            <!-- <VCol cols="4" align="right">
             <VBtn @click="exportToPDF">Print</VBtn>
           </VCol> -->
-        </VRow>
-        <!-- Position -->
-        <div class="primary-bold-color">
-          {{ baseSheetDetails.Position }}
+          </VRow>
+          <!-- Position -->
+          <div class="primary-bold-color">
+            {{ baseSheetDetails.Position }}
+          </div>
+          <!-- Contacts -->
+          <VRow>
+            <VCol cols="12">
+              <ContactList :items="baseSheetDetails.Contacts"> </ContactList>
+            </VCol>
+          </VRow>
+          <!-- Summary -->
+          <VRow>
+            <VCol class="pb-0" cols="12">
+              <p class="primary-bold-color">
+                {{ summaryTitle }}
+              </p>
+            </VCol>
+            <VCol class="pt-0" cols="12">
+              <p class="secondary">
+                {{ baseSheetDetails.Summary }}
+              </p>
+            </VCol>
+          </VRow>
+          <div></div>
+          <!-- Experience -->
+          <VRow>
+            <VCol class="pl-2" cols="12">
+              <ExpirienceTimeline
+                :items="baseSheetDetails.Experience"
+              ></ExpirienceTimeline>
+            </VCol>
+          </VRow>
+          <!-- Education -->
+          <VRow>
+            <VCol class="pl-2" cols="12">
+              <EducationTimeline
+                :items="baseSheetDetails.Education"
+              ></EducationTimeline>
+            </VCol>
+          </VRow>
+          <!-- Projects -->
+          <VRow>
+            <VCol cols="12">
+              <ProjectList :items="baseSheetDetails.Projects"> </ProjectList>
+            </VCol>
+          </VRow>
         </div>
-        <!-- Contacts -->
-        <VRow>
-          <VCol cols="12">
-            <ContactList :items="baseSheetDetails.Contacts"> </ContactList>
-          </VCol>
-        </VRow>
-        <!-- Summary -->
-        <VRow>
-          <VCol class="pb-0" cols="12">
-            <p class="primary-bold-color">
-              {{ summaryTitle }}
-            </p>
-          </VCol>
-          <VCol class="pt-0" cols="12">
-            <p class="secondary">
-              {{ baseSheetDetails.Summary }}
-            </p>
-          </VCol>
-        </VRow>
-        <div></div>
-        <!-- Experience -->
-        <VRow>
-          <VCol class="pl-2" cols="12">
-            <ExpirienceTimeline
-              :items="baseSheetDetails.Experience"
-            ></ExpirienceTimeline>
-          </VCol>
-        </VRow>
-        <!-- Education -->
-        <VRow>
-          <VCol class="pl-2" cols="12">
-            <EducationTimeline
-              :items="baseSheetDetails.Education"
-            ></EducationTimeline>
-          </VCol>
-        </VRow>
-        <!-- Projects -->
-        <VRow>
-          <VCol cols="12">
-            <ProjectList :items="baseSheetDetails.Projects"> </ProjectList>
-          </VCol>
-        </VRow>
-      </div>
-    </VSheet>
+      </VSheet>
+    </VSkeletonLoader>
   </div>
 </template>
 
@@ -114,12 +121,12 @@ export default defineComponent({
         this.baseSheetDetails = await getBaseSheetDetails();
 
         // Remove LinkedIn contact
-        const indexOfLinkedIn = this.baseSheetDetails.Contacts.findIndex(
-          (obj) => {
-            return obj.Type === ContactType.LinkedIn;
-          }
-        );
-        this.baseSheetDetails.Contacts.splice(indexOfLinkedIn, 1);
+        // const indexOfLinkedIn = this.baseSheetDetails.Contacts.findIndex(
+        //   (obj) => {
+        //     return obj.Type === ContactType.LinkedIn;
+        //   }
+        // );
+        // this.baseSheetDetails.Contacts.splice(indexOfLinkedIn, 1);
       } catch (error) {
         useToast().error("Error while getting resume data", {
           type: TYPE.ERROR,
@@ -128,9 +135,9 @@ export default defineComponent({
         this.loading = false;
       }
     },
-    exportToPDF() {
-      window.print();
-    },
+    // exportToPDF() {
+    //   window.print();
+    // },
   },
 });
 </script>

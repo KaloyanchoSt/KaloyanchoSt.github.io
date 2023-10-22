@@ -11,9 +11,7 @@
               :href="`${contact.Type}:${contact.Value}`"
             >
               <VIcon class="mr-1" color="primary" :icon="contact.Icon" />
-              <span class="secondary">{{
-                contact.Value
-              }}</span>
+              <span class="secondary">{{ contact.Value }}</span>
             </a>
           </template>
           <span>{{ visit }}</span>
@@ -56,15 +54,7 @@ ul {
   margin: 0;
   padding: 0;
 }
-@media (max-width: 960px) and (min-width: 501px) {
-  li {
-    width: 100%;
-  } /* Show 2 logos per row on medium devices (tablets, phones in landscape) */
-}
-
-@media (max-width: 500px) {
-  li {
-    width: 100%;
-  } /* On small screens, show one logo per row */
+li {
+  width: clamp(290px, 100%, 390px);
 }
 </style>

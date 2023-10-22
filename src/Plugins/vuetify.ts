@@ -14,9 +14,13 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
 //Blueprints
 import { md3 } from 'vuetify/blueprints'
+import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
+  components: {
+    VSkeletonLoader,
+  },
   blueprint: md3,
   theme: {
     themes: {

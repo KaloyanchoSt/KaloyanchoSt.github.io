@@ -18,7 +18,10 @@ import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 
 //CSS
-import './Assets/CSS/main.css';
+//import './Assets/CSS/main.css';
+
+//SCSS
+import './Assets/SCSS/main.scss';
 
 const app = createApp(App)
 
